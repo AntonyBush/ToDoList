@@ -1,6 +1,9 @@
+{% extends 'todo/base.html'%}
+{% block content %}
 <a href="{% url 'ToDoList' %}">Go Back</a>
 <form method="POST" >
     {% csrf_token %}
     <p>Are you sure want to delete the task: {{task}}</p>
     <input type="submit" value="Delete">
 </form>
+{% endblock content %}

@@ -15,11 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from todo.views import TaskList,TaskCreate,TaskUpdate,TaskDelete,CustomLoginView
+from todo.views import TaskList,TaskCreate,TaskUpdate,TaskDelete,CustomLoginView,RegisterView
 from django.contrib.auth.views import LogoutView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('login/',CustomLoginView.as_view(),name='login'),
+    path('register/',RegisterView.as_view(),name='register'),
     path('logout/',LogoutView.as_view(next_page='ToDoList'),name='logout'),
     path('',TaskList.as_view(),name='ToDoList'),
     path('create-task/',TaskCreate.as_view(),name='create-task'),

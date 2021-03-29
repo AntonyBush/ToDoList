@@ -1,3 +1,5 @@
+{% extends 'todo/base.html'%}
+{% block content %}
 <h2>Login</h2>
 
 <form method="POST" action="">
@@ -5,3 +7,6 @@
     {{form.as_p}}
     <input type="submit" value="Login">
 </form>
+
+<p>Don't Have an Account? <a href="{% url 'register' %}">Register</a></p>
+{% endblock content %}
