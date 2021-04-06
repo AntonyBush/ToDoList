@@ -14,24 +14,35 @@
     {% endif %}
 </div>
 
-<h1>To-Do List</h1>
-<a href="{% url 'create-task' %}">Add Task</a>
-<form action="" method="GET">
-    <input type="text" name="search-input" value="{{search_input}}">
-    <input type="submit" value="Search">
-</form>
-<table>
-    <th>Item</th>  
-    <th></th>
-    <th></th>
-    {% for obj in task %}
-    <tr>
-        <td>{{obj.title}}</td>
-        <td><a href="{% url 'update-task' obj.id %}">Edit</a></td>       
-        <td><a href="{% url 'delete-task' obj.id %}">Delete</a></td>
-    </tr>     <!--Object Name-->
-    {% empty %}
-    <li>No tasks</li>
+<div id="search-add-wrapper">
+    <form action="" method="GET" style="margin-top: 20px; display: flex;">
+        <input type="text" name="search-area" value="{{search_input}}">
+        <input style="margin-left: 10px;" class="button" type="submit" value="Search">
+    </form>
+    <a id="add-link" href="{% url 'create-task' %}">&#x2b;</a>
+</div>
+
+
+
+
+<div class="task-items-wrapper">
+    {% for task in task %}
+    <div class="task-wrapper">
+        {% if task.complete %}
+        <div class="task-title">
+            <div class="task-complete-icon"></div>
+            <i><s><a href="{% url 'update-task' task.id %}">{{task}}</a></s></i> 
+        </div>
+        <a class="delete-link" href="{% url 'delete-task' task.id %}">&#215</a>
+        {% else %}
+        <div class="task-title">
+            <div class="task-incomplete-icon"></div>
+            <a href="{% url 'update-task' task.id %}">{{task}}</a> 
+        </div>
+        <a class="delete-link" href="{% url 'delete-task' task.id %}">&#215</a>
+        {% endif %}
+    </div>
     {% endfor %}
-</table>
+</div>
+
 {% endblock content %}

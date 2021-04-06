@@ -1,4 +1,3 @@
-import re
 from django.http import request
 from django.shortcuts import redirect, render
 from django.views.generic.list import ListView
@@ -53,7 +52,7 @@ class TaskList(LoginRequiredMixin,ListView):
         context['task']=context['task'].filter(user=self.request.user)   #filters only user's tasks
         context['count']=context['task'].filter(complete=False).count()
 
-        search_input=self.request.GET.get('search-input') or ''
+        search_input=self.request.GET.get('search-area') or ''
         if search_input:
             context['task']=context['task'].filter(title__startswith=search_input)
 
@@ -75,7 +74,7 @@ class TaskCreate(LoginRequiredMixin,CreateView):
 
 class TaskUpdate(LoginRequiredMixin,UpdateView):
     model=Task
-    fields='__all__'
+    fields=['title','description','complete']
     success_url=reverse_lazy('ToDoList')
 
 class TaskDelete(LoginRequiredMixin,DeleteView):
