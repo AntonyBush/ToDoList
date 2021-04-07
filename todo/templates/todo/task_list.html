@@ -23,8 +23,6 @@
 </div>
 
 
-
-
 <div class="task-items-wrapper">
     {% for task in task %}
     <div class="task-wrapper">
@@ -33,11 +31,26 @@
             <div class="task-complete-icon"></div>
             <i><s><a href="{% url 'update-task' task.id %}">{{task}}</a></s></i> 
         </div>
+        <div class="deadline">
+            {{task.deadline}}
+        </div>
+        <a class="delete-link" href="{% url 'delete-task' task.id %}">&#215</a>
+        {% elif task.is_end_date %}
+        <div class="task-title">
+            <div class="task-late-icon"></div>
+            <a href="{% url 'update-task' task.id %}">{{task}}</a> 
+        </div>
+        <div class="deadline">
+            {{task.deadline}}
+        </div>
         <a class="delete-link" href="{% url 'delete-task' task.id %}">&#215</a>
         {% else %}
         <div class="task-title">
             <div class="task-incomplete-icon"></div>
             <a href="{% url 'update-task' task.id %}">{{task}}</a> 
+        </div>
+        <div class="deadline">
+            {{task.deadline}}
         </div>
         <a class="delete-link" href="{% url 'delete-task' task.id %}">&#215</a>
         {% endif %}

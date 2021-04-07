@@ -1,3 +1,6 @@
+from django.forms import widgets
+from django.forms.fields import SplitDateTimeField
+from django.forms.models import model_to_dict
 from django.http import request
 from django.shortcuts import redirect, render
 from django.views.generic.list import ListView
@@ -7,6 +10,7 @@ from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.forms import UserCreationForm
 from django import forms
+from django.contrib.admin.widgets import AdminDateWidget, AdminSplitDateTime
 from django.contrib.auth import login
 from django.contrib.auth.views import LoginView
 
@@ -18,10 +22,20 @@ class UserRegForm(UserCreationForm):
         model=User
         fields=['username','email','password1','password2']
 
+class DateWidget(forms.DateTimeInput):
+    input_type='datetime-local'
+
+class TaskC(forms.ModelForm):
+    class Meta:
+        model=Task
+        widgets = {
+        'deadline': DateWidget()
+        }
+        fields= ['title','description','complete','deadline']
+
 class CustomLoginView(LoginView):
     template_name='todo/login.html'
     fields='__all__'
-
     def get_success_url(self):
         return reverse_lazy('ToDoList')
 
@@ -46,7 +60,6 @@ class RegisterView(FormView):
 class TaskList(LoginRequiredMixin,ListView):
     model=Task
     context_object_name='task'
-
     def get_context_data(self, **kwargs):
         context= super().get_context_data( **kwargs)
         context['task']=context['task'].filter(user=self.request.user)   #filters only user's tasks
@@ -62,8 +75,8 @@ class TaskList(LoginRequiredMixin,ListView):
 
 
 class TaskCreate(LoginRequiredMixin,CreateView):
-    model = Task
-    fields= ['title','description','complete']
+    template_name='todo/task_form.html'
+    form_class=TaskC
     success_url=reverse_lazy('ToDoList') #reverse on successful submission
 
     def form_valid(self, form):

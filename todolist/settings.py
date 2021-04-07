@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = '&^fuh-%)ws&-a=9tzojb+j9imb68220n(&f)xkzl)mqx7pk%1&'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
@@ -34,7 +34,9 @@ ALLOWED_HOSTS = ['antony-todolist.herokuapp.com','127.0.0.1']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
+    'crispy_forms', 
     'django.contrib.auth',
+    'datetimewidget',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
@@ -121,6 +123,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-STATIC_ROOT=os.path.join(BASE_DIR,'staticfiles')
+
 STATIC_URL = '/static/'
+STATIC_ROOT=os.path.join(BASE_DIR,'static')
 LOGIN_URL = 'login'
+
+CRISPY_TEMPLATE_PACK='bootstrap4'
