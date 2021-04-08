@@ -6,12 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ToDoList</title>
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600&display=swap" rel="stylesheet">
     <style>
         body{
             background-color: #FAFAFA;
             padding-top: 50px;
             font-family: 'Nunito',sans-serif;
+            background-image: url(https://images2.minutemediacdn.com/image/upload/c_crop,h_2164,w_3845,x_0,y_259/v1554918405/shape/mentalfloss/94735-istock-863607936.jpg?itok=ZYfiTd6J);
+            background-repeat: no-repeat;
+            background-size: cover;
         }
 
         h1,h2,h3,h4,h5,h6{
@@ -33,11 +36,13 @@
 
         .header-bar a{
             color: rgb(247, 247, 247);
+            font-size: 17.5px;
             text-decoration: none;      /*Removes Underline*/
         }
 
         .container {
             max-width: 550px;
+            
             margin: auto;
             background-color: #fff;
             -webkit-box-shadow: 2px 2px 13px -4px rgba(0, 0, 0, 0.21);
@@ -70,6 +75,13 @@
             border-radius: 50%;
         }
 
+        .task-late-icon{
+            height: 20px;
+            width: 20px;
+            background-color: #cf4949;
+            border-radius: 50%;
+        }
+
         .task-incomplete-icon {
             height: 20px;
             width: 20px;
@@ -77,18 +89,29 @@
             border-radius: 50%;
         }
 
+        .deadline{
+            position: absolute;
+            right: 500px;
+            text-align: right;
+            text-decoration: none;
+            justify-content: end;
+            font-size: 15px;
+        }
+
         .delete-link {
             text-decoration: none;
             font-weight: 900;
             color: #cf4949;
-            font-size: 22px;
+            font-size: 23px;
             line-height: 0;
+            text-shadow: 0.5px 0.5px #81413b;
         }
 
         #add-link {
             color: #EB796F;
             text-decoration: none;
             font-size: 42px;
+            margin-right: 5px;
             text-shadow: 1px 1px #81413b;
         }
 
@@ -97,9 +120,11 @@
             justify-content: space-between;
             align-items: center;
             padding: 10px;
+            margin-left: 7px;
         }
 
         input[type=text],
+        input[type=email],
         input[type=password],
         textarea {
             border: 1px solid #EB796F;
