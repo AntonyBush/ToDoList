@@ -125,14 +125,7 @@ USE_TZ = True
 
 
 STATIC_URL = '/static/'
-<<<<<<< HEAD
-STATICFILES_DIRS=[
-    os.path.join(BASE_DIR,'static'),
-]
-LOGIN_URL = 'login'
-=======
 STATIC_ROOT=os.path.join(BASE_DIR,'static')
 LOGIN_URL = 'login'
 
 CRISPY_TEMPLATE_PACK='bootstrap4'
->>>>>>> 518bfbf55d5f1971203fc9f040edbd13603da752
