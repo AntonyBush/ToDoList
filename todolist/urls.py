@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path
 from todo.views import TaskList,TaskCreate,TaskUpdate,TaskDelete,CustomLoginView,RegisterView
 from django.contrib.auth.views import LogoutView
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('login/',CustomLoginView.as_view(),name='login'),
@@ -25,5 +26,5 @@ urlpatterns = [
     path('',TaskList.as_view(),name='ToDoList'),
     path('create-task/',TaskCreate.as_view(),name='create-task'),
     path('update-task/<int:pk>',TaskUpdate.as_view(),name='update-task'),
-    path('delete-task/<int:pk>',TaskDelete.as_view(),name='delete-task')
+    path('delete-task/<int:pk>',TaskDelete.as_view(),name='delete-task'),
 ]

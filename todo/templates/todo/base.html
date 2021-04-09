@@ -1,12 +1,21 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ToDoList</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'todo/images/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'todo/images/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'todo/images/favicon-16x16.png' %}">
+    <link rel="manifest" href="{% static 'todo/images/site.webmanifest' %}">
+    <link rel="shortcut icon" href="{% static 'todo/images/favicon.ico' %}">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-config" content="{% static 'todo/images/browserconfig.xml' %}">
+    <meta name="theme-color" content="#ffffff">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap" rel="stylesheet">
     <style>
         body{
             background-color: #FAFAFA;
@@ -42,7 +51,6 @@
 
         .container {
             max-width: 550px;
-            
             margin: auto;
             background-color: #fff;
             -webkit-box-shadow: 2px 2px 13px -4px rgba(0, 0, 0, 0.21);
@@ -91,7 +99,7 @@
 
         .deadline{
             position: absolute;
-            right: 500px;
+            left: 53%;
             text-align: right;
             text-decoration: none;
             justify-content: end;
@@ -121,6 +129,7 @@
             align-items: center;
             padding: 10px;
             margin-left: 7px;
+            margin-top: -5px;
         }
 
         input[type=text],
