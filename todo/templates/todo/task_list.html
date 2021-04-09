@@ -21,7 +21,12 @@
     </form>
     <a id="add-link" href="{% url 'create-task' %}">&#x2b;</a>
 </div>
+<<<<<<< HEAD
  
+=======
+
+
+>>>>>>> 518bfbf55d5f1971203fc9f040edbd13603da752
 <div class="task-items-wrapper">
     {% for task in task %}
     <div class="task-wrapper">
@@ -37,10 +42,17 @@
         {% elif task.is_end_date %}
         <div class="task-title">
             <div class="task-late-icon"></div>
+<<<<<<< HEAD
             <b><a style="color: red;" href="{% url 'update-task' task.id %}">{{task}}</a></b>
         </div>
         <div  style="color: red" class="deadline">
             <b>{{task.deadline}}</b>
+=======
+            <a href="{% url 'update-task' task.id %}">{{task}}</a> 
+        </div>
+        <div class="deadline">
+            {{task.deadline}}
+>>>>>>> 518bfbf55d5f1971203fc9f040edbd13603da752
         </div>
         <a class="delete-link" href="{% url 'delete-task' task.id %}">&#215</a>
         {% else %}

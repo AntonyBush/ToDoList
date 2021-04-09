@@ -1,3 +1,6 @@
+from django.forms import widgets
+from django.forms.fields import SplitDateTimeField
+from django.forms.models import model_to_dict
 from django.http import request
 from django.shortcuts import redirect, render
 from django.views.generic.list import ListView
@@ -7,6 +10,7 @@ from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.forms import UserCreationForm
 from django import forms
+from django.contrib.admin.widgets import AdminDateWidget, AdminSplitDateTime
 from django.contrib.auth import login
 from django.contrib.auth.views import LoginView
 from django.contrib.admin.widgets import AdminDateWidget, AdminSplitDateTime
@@ -76,9 +80,13 @@ class TaskList(LoginRequiredMixin,ListView):
 
 
 class TaskCreate(LoginRequiredMixin,CreateView):
+<<<<<<< HEAD
     model = Task
-    #fields= TaskC
-    form_class= TaskC
+    form_class=TaskC
+=======
+    template_name='todo/task_form.html'
+    form_class=TaskC
+>>>>>>> 518bfbf55d5f1971203fc9f040edbd13603da752
     success_url=reverse_lazy('ToDoList') #reverse on successful submission
 
     def form_valid(self, form):

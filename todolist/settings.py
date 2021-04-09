@@ -34,7 +34,9 @@ ALLOWED_HOSTS = ['antony-todolist.herokuapp.com','127.0.0.1']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
+    'crispy_forms', 
     'django.contrib.auth',
+    'datetimewidget',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
@@ -121,9 +123,16 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-STATIC_ROOT=os.path.join(BASE_DIR,'staticfiles')
+
 STATIC_URL = '/static/'
+<<<<<<< HEAD
 STATICFILES_DIRS=[
     os.path.join(BASE_DIR,'static'),
 ]
 LOGIN_URL = 'login'
+=======
+STATIC_ROOT=os.path.join(BASE_DIR,'static')
+LOGIN_URL = 'login'
+
+CRISPY_TEMPLATE_PACK='bootstrap4'
+>>>>>>> 518bfbf55d5f1971203fc9f040edbd13603da752

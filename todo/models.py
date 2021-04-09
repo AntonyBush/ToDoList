@@ -1,7 +1,11 @@
+from django.contrib.admin.widgets import AdminSplitDateTime
 from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.deletion import CASCADE
+<<<<<<< HEAD
 from django.contrib.admin.widgets import AdminSplitDateTime
+=======
+>>>>>>> 518bfbf55d5f1971203fc9f040edbd13603da752
 from django.forms import widgets
 from django.utils import timezone
 from datetime import datetime,timedelta
